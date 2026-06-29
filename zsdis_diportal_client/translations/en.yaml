@@ -1,0 +1,37 @@
+configuration:
+  cookie_string:
+    name: "Raw Cookie String"
+    description: "Paste the 'Cookie:' header from your browser (F12 -> Network -> diportal.sk request)."
+  delivery_point_id:
+    name: "Delivery Point ID (EIC)"
+    description: "Optional (if auto-discovery fails): 24Z... EIC code."
+  business_partner_id:
+    name: "Business Partner ID"
+    description: "Optional (if auto-discovery fails): e.g. 51000..."
+  hdo_primary:
+    name: "Primary HDO Code"
+    description: "Your primary HDO code from ZSDIS contract"
+  hdo_water_heater:
+    name: "Water Heater HDO Code"
+    description: "Your secondary/water heater HDO code"
+  tariff_high_rate:
+    name: "High Tariff Rate (€/kWh)"
+    description: "High tariff rate in €/kWh"
+  tariff_low_rate:
+    name: "Low Tariff Rate (€/kWh)"
+    description: "Low tariff rate in €/kWh"
+  update_hour:
+    name: "Update Hour"
+    description: "The hour of the day (0-23) to fetch yesterday's data"
+  historical_import:
+    name: "Import Historical Data"
+    description: "Backfill missing historical data on startup"
+  historical_start_date:
+    name: "Historical Start Date"
+    description: "Start date for historical backfill (YYYY-MM-DD)"
+  log_level:
+    name: "Log Level"
+    description: "Verbosity of the addon logs"
+  force_reimport:
+    name: "Force Re-import"
+    description: "If checked, all historical data will be wiped and re-downloaded from the start date upon next start."

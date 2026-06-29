@@ -1,0 +1,638 @@
+{
+  "data": {
+    "evaluateReservedCapacityOverflow": false,
+    "intervalDataProvided": true,
+    "profileData": {
+      "measuredValueUnit": "kW",
+      "dailyIntervalData": [
+        {
+          "date": "2026-06-24",
+          "reservedCapacity": 18.0,
+          "reservedCapacityOverflowCount": 0,
+          "maximumReservedCapacity": 18.0,
+          "dailyState": "ALL_VALID",
+          "values": [
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "00:00:00",
+              "state": "VM",
+              "hourlyConsumption": 1.251,
+              "measuredValue": 0.2
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "00:15:00",
+              "state": "VM",
+              "measuredValue": 0.204
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "00:30:00",
+              "state": "VM",
+              "measuredValue": 2.26
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "00:45:00",
+              "state": "VM",
+              "measuredValue": 2.34
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "01:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.828,
+              "measuredValue": 2.348
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "01:15:00",
+              "state": "VM",
+              "measuredValue": 0.416
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "01:30:00",
+              "state": "VM",
+              "measuredValue": 0.284
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "01:45:00",
+              "state": "VM",
+              "measuredValue": 0.264
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "02:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.201,
+              "measuredValue": 0.204
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "02:15:00",
+              "state": "VM",
+              "measuredValue": 0.2
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "02:30:00",
+              "state": "VM",
+              "measuredValue": 0.2
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "02:45:00",
+              "state": "VM",
+              "measuredValue": 0.2
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "03:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.278,
+              "measuredValue": 0.256
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "03:15:00",
+              "state": "VM",
+              "measuredValue": 0.288
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "03:30:00",
+              "state": "VM",
+              "measuredValue": 0.284
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "03:45:00",
+              "state": "VM",
+              "measuredValue": 0.284
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "04:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.213,
+              "measuredValue": 0.268
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "04:15:00",
+              "state": "VM",
+              "measuredValue": 0.196
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "04:30:00",
+              "state": "VM",
+              "measuredValue": 0.196
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "04:45:00",
+              "state": "VM",
+              "measuredValue": 0.192
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "05:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.388,
+              "measuredValue": 0.216
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "05:15:00",
+              "state": "VM",
+              "measuredValue": 0.304
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "05:30:00",
+              "state": "VM",
+              "measuredValue": 0.336
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "05:45:00",
+              "state": "VM",
+              "measuredValue": 0.696
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "06:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.782,
+              "measuredValue": 2.112
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "06:15:00",
+              "state": "VM",
+              "measuredValue": 0.38
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "06:30:00",
+              "state": "VM",
+              "measuredValue": 0.26
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "06:45:00",
+              "state": "VM",
+              "measuredValue": 0.376
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "07:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.263,
+              "measuredValue": 0.252
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "07:15:00",
+              "state": "VM",
+              "measuredValue": 0.224
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "07:30:00",
+              "state": "VM",
+              "measuredValue": 0.292
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "07:45:00",
+              "state": "VM",
+              "measuredValue": 0.284
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "08:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.597,
+              "measuredValue": 0.748
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "08:15:00",
+              "state": "VM",
+              "measuredValue": 0.616
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "08:30:00",
+              "state": "VM",
+              "measuredValue": 0.548
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "08:45:00",
+              "state": "VM",
+              "measuredValue": 0.476
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "09:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.345,
+              "measuredValue": 0.308
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "09:15:00",
+              "state": "VM",
+              "measuredValue": 0.328
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "09:30:00",
+              "state": "VM",
+              "measuredValue": 0.384
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "09:45:00",
+              "state": "VM",
+              "measuredValue": 0.36
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "10:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.787,
+              "measuredValue": 0.356
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "10:15:00",
+              "state": "VM",
+              "measuredValue": 0.672
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "10:30:00",
+              "state": "VM",
+              "measuredValue": 0.952
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "10:45:00",
+              "state": "VM",
+              "measuredValue": 1.168
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "11:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.875,
+              "measuredValue": 0.796
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "11:15:00",
+              "state": "VM",
+              "measuredValue": 0.948
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "11:30:00",
+              "state": "VM",
+              "measuredValue": 0.944
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "11:45:00",
+              "state": "VM",
+              "measuredValue": 0.812
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "12:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.724,
+              "measuredValue": 0.912
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "12:15:00",
+              "state": "VM",
+              "measuredValue": 0.676
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "12:30:00",
+              "state": "VM",
+              "measuredValue": 0.596
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "12:45:00",
+              "state": "VM",
+              "measuredValue": 0.712
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "13:00:00",
+              "state": "VM",
+              "hourlyConsumption": 2.867,
+              "measuredValue": 2.82
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "13:15:00",
+              "state": "VM",
+              "measuredValue": 2.86
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "13:30:00",
+              "state": "VM",
+              "measuredValue": 2.728
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "13:45:00",
+              "state": "VM",
+              "measuredValue": 3.06
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "14:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.805,
+              "measuredValue": 2.1
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "14:15:00",
+              "state": "VM",
+              "measuredValue": 0.6
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "14:30:00",
+              "state": "VM",
+              "measuredValue": 0.304
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "14:45:00",
+              "state": "VM",
+              "measuredValue": 0.216
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "15:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.288,
+              "measuredValue": 0.264
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "15:15:00",
+              "state": "VM",
+              "measuredValue": 0.3
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "15:30:00",
+              "state": "VM",
+              "measuredValue": 0.296
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "15:45:00",
+              "state": "VM",
+              "measuredValue": 0.292
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "16:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.257,
+              "measuredValue": 0.224
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "16:15:00",
+              "state": "VM",
+              "measuredValue": 0.268
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "16:30:00",
+              "state": "VM",
+              "measuredValue": 0.268
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "16:45:00",
+              "state": "VM",
+              "measuredValue": 0.268
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "17:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.621,
+              "measuredValue": 0.34
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "17:15:00",
+              "state": "VM",
+              "measuredValue": 0.336
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "17:30:00",
+              "state": "VM",
+              "measuredValue": 0.596
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "17:45:00",
+              "state": "VM",
+              "measuredValue": 1.212
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "18:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.475,
+              "measuredValue": 0.736
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "18:15:00",
+              "state": "VM",
+              "measuredValue": 0.436
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "18:30:00",
+              "state": "VM",
+              "measuredValue": 0.4
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "18:45:00",
+              "state": "VM",
+              "measuredValue": 0.328
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "19:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.589,
+              "measuredValue": 0.444
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "19:15:00",
+              "state": "VM",
+              "measuredValue": 0.7
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "19:30:00",
+              "state": "VM",
+              "measuredValue": 0.628
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "19:45:00",
+              "state": "VM",
+              "measuredValue": 0.584
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "20:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.305,
+              "measuredValue": 0.264
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "20:15:00",
+              "state": "VM",
+              "measuredValue": 0.3
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "20:30:00",
+              "state": "VM",
+              "measuredValue": 0.336
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "20:45:00",
+              "state": "VM",
+              "measuredValue": 0.32
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "21:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.416,
+              "measuredValue": 0.308
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "21:15:00",
+              "state": "VM",
+              "measuredValue": 0.752
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "21:30:00",
+              "state": "VM",
+              "measuredValue": 0.304
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "21:45:00",
+              "state": "VM",
+              "measuredValue": 0.3
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "22:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.3,
+              "measuredValue": 0.256
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "22:15:00",
+              "state": "VM",
+              "measuredValue": 0.284
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "22:30:00",
+              "state": "VM",
+              "measuredValue": 0.332
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "22:45:00",
+              "state": "VM",
+              "measuredValue": 0.328
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "23:00:00",
+              "state": "VM",
+              "hourlyConsumption": 0.255,
+              "measuredValue": 0.284
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "23:15:00",
+              "state": "VM",
+              "measuredValue": 0.24
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "23:30:00",
+              "state": "VM",
+              "measuredValue": 0.24
+            },
+            {
+              "dateMeasuredAt": "2026-06-24",
+              "measuredAt": "23:45:00",
+              "state": "VM",
+              "measuredValue": 0.256
+            }
+          ],
+          "reservedCapacityOverflowDailyState": "NO_OVERFLOW",
+          "consumption": 14.71
+        }
+      ],
+      "profileRole": "PS_PLUS",
+      "from": "2026-06-24",
+      "profileTypeId": "PS_PLUS",
+      "to": "2026-06-24",
+      "consumptionUnit": "kWh",
+      "profileStatuses": []
+    },
+    "profileRoles": [
+      {
+        "roleId": "PS_PLUS",
+        "reservedCapacityRelevant": true,
+        "maximumReservedCapacityRelevant": true,
+        "description": "Činný výkon so stratami"
+      }
+    ]
+  },
+  "messageDestination": "FORM",
+  "messages": []
+}

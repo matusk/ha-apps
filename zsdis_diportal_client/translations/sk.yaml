@@ -1,0 +1,37 @@
+configuration:
+  cookie_string:
+    name: "Cookie Reťazec (Raw)"
+    description: "Vlož 'Cookie:' hlavičku z prehliadača (F12 -> Network -> požiadavka na diportal.sk)."
+  delivery_point_id:
+    name: "ID odberného miesta (EIC)"
+    description: "Voliteľné (ak zlyhá auto-discovery): 24Z... EIC kód."
+  business_partner_id:
+    name: "ID obchodného partnera"
+    description: "Voliteľné (ak zlyhá auto-discovery): napr. 51000..."
+  hdo_primary:
+    name: "Primárny HDO Kód"
+    description: "Váš primárny HDO kód zo zmluvy"
+  hdo_water_heater:
+    name: "Sekundárny HDO Kód (Bojler)"
+    description: "Váš sekundárny HDO kód pre bojler"
+  tariff_high_rate:
+    name: "Vysoká Tarifa (€/kWh)"
+    description: "Cena vysokej tarify v €/kWh"
+  tariff_low_rate:
+    name: "Nízka Tarifa (€/kWh)"
+    description: "Cena nízkej tarify v €/kWh"
+  update_hour:
+    name: "Čas aktualizácie"
+    description: "Hodina (0-23), kedy sa stiahnu dáta za predošlý deň"
+  historical_import:
+    name: "Importovať historické dáta"
+    description: "Stiahnuť chýbajúce historické dáta pri štarte"
+  historical_start_date:
+    name: "Dátum začiatku importu"
+    description: "Dátum od ktorého začať import (RRRR-MM-DD)"
+  log_level:
+    name: "Úroveň logovania"
+    description: "Detailnosť výpisov v logu"
+  force_reimport:
+    name: "Vynútiť re-import"
+    description: "Ak je zapnuté, všetky historické dáta sa znovu stiahnu od počiatočného dátumu."

@@ -1,0 +1,49 @@
+name: "ZSDIS Diportal Client"
+version: "0.0.5"
+slug: "zsdis_diportal_client"
+description: "Fetches daily energy consumption from ZSDIS diportal.sk and integrates with the HA Energy Dashboard"
+url: "https://github.com/matusk/ha-addon-zsdis-diportal-client"
+arch:
+  - amd64
+  - aarch64
+  - armv7
+init: false
+startup: application
+hassio_api: true
+homeassistant_api: true
+services:
+  - "mqtt:want"
+map:
+  - addon_config:rw
+options:
+  cookie_string: ""
+  twocaptcha_api_key: ""
+  portal_username: ""
+  portal_password: ""
+  delivery_point_id: ""
+  business_partner_id: ""
+  hdo_primary: ""
+  hdo_water_heater: ""
+  tariff_high_rate: 0.18
+  tariff_low_rate: 0.12
+  update_hour: 7
+  historical_import: true
+  historical_start_date: "2024-01-01"
+  force_reimport: false
+  log_level: "info"
+schema:
+  cookie_string: "str?"
+  twocaptcha_api_key: "str?"
+  portal_username: "str?"
+  portal_password: "password?"
+  delivery_point_id: "str?"
+  business_partner_id: "str?"
+  hdo_primary: "str?"
+  hdo_water_heater: "str?"
+  tariff_high_rate: "float"
+  tariff_low_rate: "float"
+  update_hour: "int"
+  historical_import: "bool"
+  historical_start_date: "str?"
+  force_reimport: "bool"
+  log_level: "list(trace|debug|info|notice|warning|error|fatal)?"

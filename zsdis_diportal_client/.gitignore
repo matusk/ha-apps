@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Session / credentials — NEVER commit these
+session.json
+**/session.json
+test_captcha.py
+*.log
