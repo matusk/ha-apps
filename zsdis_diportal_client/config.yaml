@@ -1,5 +1,5 @@
 name: "ZSDIS Diportal Client"
-version: "0.0.5"
+version: "0.0.7"
 slug: "zsdis_diportal_client"
 description: "Fetches daily energy consumption from ZSDIS diportal.sk and integrates with the HA Energy Dashboard"
 url: "https://github.com/matusk/ha-addon-zsdis-diportal-client"
@@ -30,6 +30,7 @@ options:
   historical_import: true
   historical_start_date: "2024-01-01"
   force_reimport: false
+  keep_alive_ping: false
   log_level: "info"
 schema:
   cookie_string: "str?"
@@ -46,4 +47,5 @@ schema:
   historical_import: "bool"
   historical_start_date: "str?"
   force_reimport: "bool"
+  keep_alive_ping: "bool"
   log_level: "list(trace|debug|info|notice|warning|error|fatal)?"

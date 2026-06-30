@@ -12,6 +12,7 @@ import os
 import sys
 import random
 from datetime import date, datetime, timedelta
+from typing import Optional
 from pathlib import Path
 
 logging.basicConfig(
@@ -72,8 +73,11 @@ def save_state(state: dict):
 
 # ─── Scheduling ───────────────────────────────────────────────────────────────
 
-async def sleep_until_next_run(target_hour: int, client):
-    """Sleep until the next occurrence of target_hour:00, pinging randomly to keep session alive."""
+async def sleep_until_next_run(target_hour: int, client, keep_alive: bool = False):
+    """Sleep until the next occurrence of target_hour:00.
+    If keep_alive is True, pings the portal at random intervals to prevent session expiry.
+    When 2Captcha is configured, keep_alive is not needed as the session can be renewed automatically.
+    """
     now = datetime.now()
     next_run = now.replace(hour=target_hour, minute=0, second=0, microsecond=0)
     if next_run <= now:
@@ -82,6 +86,12 @@ async def sleep_until_next_run(target_hour: int, client):
     total_wait = (next_run - now).total_seconds()
     logger.info(f"Next data fetch at {next_run.strftime('%Y-%m-%d %H:%M:%S')} (in {total_wait/3600:.1f}h)")
 
+    if not keep_alive:
+        # Simple sleep — session will be re-authenticated at the start of the next run
+        await asyncio.sleep(total_wait)
+        return
+
+    # Keep-alive mode: ping the portal at random intervals to maintain the session
     while True:
         now = datetime.now()
         wait_seconds = (next_run - now).total_seconds()
@@ -149,6 +159,14 @@ async def fetch_and_publish_day(
         tariff_low_rate=low_rate,
         monthly_kwh=monthly_kwh,
     )
+
+    if ok:
+        # Also push into HA recorder statistics so the Energy Dashboard updates.
+        # Pass the full raw data dict (includes 15-min intervals) for hourly granularity.
+        stat_ok = await ha.import_day_statistics(data)
+        if not stat_ok:
+            logger.warning(f"Statistics import failed for {target_date} — Energy Dashboard may lag")
+
     last_day_data = {
         'date': str(target_date),
         'total_kwh': total,
@@ -308,6 +326,7 @@ async def main():
 
     cookie_string = config.get('cookie_string', '')
     update_hour = int(config.get('update_hour', 7))
+    keep_alive_ping = bool(config.get('keep_alive_ping', False))
 
     try:
         from zsdis_client import ZSDISClient
@@ -423,7 +442,7 @@ async def main():
     logger.info(f"Init complete. Running daily at {update_hour:02d}:00")
 
     while True:
-        await sleep_until_next_run(update_hour, client)
+        await sleep_until_next_run(update_hour, client, keep_alive=keep_alive_ping)
 
         logger.info("=" * 40)
         logger.info(f"Daily run — {datetime.now().strftime('%Y-%m-%d %H:%M')}")

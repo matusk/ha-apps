@@ -403,6 +403,159 @@ class HomeAssistantIntegration:
 
   # ─── Historical statistics ────────────────────────────────────────────────
 
+  async def get_latest_statistic_sum(self, entity_id: str) -> float:
+    """
+    Query HA recorder for the most recent cumulative sum of a statistic sensor.
+    Returns 0.0 if no statistics exist yet (first import).
+    """
+    try:
+      session = await self._get_session()
+      async with session.ws_connect('ws://supervisor/core/api/websocket') as ws:
+        msg = await ws.receive_json()
+        await ws.send_json({"type": "auth", "access_token": self.token})
+        msg = await ws.receive_json()
+        if msg.get('type') != 'auth_ok':
+          return 0.0
+
+        # Get the last 2 days of statistics to find the latest sum
+        end_dt = datetime.now(tz=timezone.utc)
+        start_dt = end_dt - timedelta(days=2)
+        await ws.send_json({
+          'id': 1,
+          'type': 'recorder/statistics_during_period',
+          'start_time': start_dt.isoformat(),
+          'end_time': end_dt.isoformat(),
+          'statistic_ids': [entity_id],
+          'period': 'hour',
+          'types': ['sum'],
+        })
+        resp = await ws.receive_json()
+        stats = resp.get('result', {}).get(entity_id, [])
+        if stats:
+          return float(stats[-1].get('sum') or 0.0)
+    except Exception as e:
+      logger.warning(f"Could not read latest sum for {entity_id}: {e}")
+    return 0.0
+
+  async def import_day_statistics(self, day_record: dict) -> bool:
+    """
+    Import a single day's data into HA recorder statistics, correctly continuing
+    the running cumulative sum from whatever was previously stored.
+
+    day_record must contain: {'date': 'YYYY-MM-DD', 'total_kwh': X, 'vt_kwh': Y,
+                              'nt_kwh': Z, 'intervals': [...]}
+    """
+    if not day_record or not self.token:
+      return False
+
+    sensor_map = {
+      'sensor.zsdis_yesterday_total': 'total_kwh',
+      'sensor.zsdis_yesterday_vt': 'vt_kwh',
+      'sensor.zsdis_yesterday_nt': 'nt_kwh',
+    }
+
+    all_ok = True
+
+    try:
+      session = await self._get_session()
+      async with session.ws_connect('ws://supervisor/core/api/websocket') as ws:
+        msg = await ws.receive_json()
+        await ws.send_json({"type": "auth", "access_token": self.token})
+        msg = await ws.receive_json()
+        if msg.get('type') != 'auth_ok':
+          logger.error(f"WS auth failed for daily statistics import: {msg}")
+          return False
+
+        # Fetch current cumulative sums for each sensor in one connection
+        end_dt = datetime.now(tz=timezone.utc)
+        start_dt = end_dt - timedelta(days=2)
+        await ws.send_json({
+          'id': 1,
+          'type': 'recorder/statistics_during_period',
+          'start_time': start_dt.isoformat(),
+          'end_time': end_dt.isoformat(),
+          'statistic_ids': list(sensor_map.keys()),
+          'period': 'hour',
+          'types': ['sum'],
+        })
+        sum_resp = await ws.receive_json()
+        sum_result = sum_resp.get('result', {})
+
+        msg_id = 2
+        for entity_id, field in sensor_map.items():
+          # Get current running total
+          existing = sum_result.get(entity_id, [])
+          base_sum = float(existing[-1].get('sum') or 0.0) if existing else 0.0
+
+          intervals = day_record.get('intervals')
+          stats = []
+
+          if intervals:
+            # Build hourly stats from 15-min intervals
+            hourly_sums: dict[str, float] = {}
+            for iv in intervals:
+              kwh = float(iv.get('kwh', 0))
+              is_nt = iv.get('is_nt', False)
+              if field == 'vt_kwh' and is_nt:
+                val = 0.0
+              elif field == 'nt_kwh' and not is_nt:
+                val = 0.0
+              else:
+                val = kwh
+              hour_str = (iv.get('measuredAt') or '00:00:00').split(':')[0]
+              hourly_sums[hour_str] = hourly_sums.get(hour_str, 0.0) + val
+
+            cumulative = base_sum
+            for hour_str in sorted(hourly_sums.keys()):
+              val = hourly_sums[hour_str]
+              cumulative += val
+              stats.append({
+                'start': f"{day_record['date']}T{hour_str}:00:00+00:00",
+                'sum': round(cumulative, 3),
+                'state': round(val, 3),
+              })
+          else:
+            # Fallback: single daily entry at midnight
+            kwh = float(day_record.get(field, 0) or 0)
+            stats.append({
+              'start': f"{day_record['date']}T00:00:00+00:00",
+              'sum': round(base_sum + kwh, 3),
+              'state': round(kwh, 3),
+            })
+
+          payload = {
+            'id': msg_id,
+            'type': 'recorder/import_statistics',
+            'metadata': {
+              'statistic_id': entity_id,
+              'name': entity_id.replace('sensor.', '').replace('_', ' ').title(),
+              'source': 'recorder',
+              'unit_of_measurement': 'kWh',
+              'has_mean': False,
+              'has_sum': True,
+            },
+            'stats': stats,
+          }
+          msg_id += 1
+
+          await ws.send_json(payload)
+          resp = await ws.receive_json()
+          if not resp.get('success'):
+            logger.error(f"Daily stat import failed for {entity_id}: {resp}")
+            all_ok = False
+          else:
+            day_kwh = float(day_record.get(field, 0) or 0)
+            logger.info(
+              f"  Stats updated: {entity_id} +{day_kwh:.3f} kWh "
+              f"(running total: {base_sum + day_kwh:.3f} kWh)"
+            )
+
+    except Exception as e:
+      logger.error(f"Error importing daily statistics: {e}")
+      return False
+
+    return all_ok
+
   async def import_historical_statistics(self, daily_records: list) -> bool:
     """
     Import historical energy data using HA's recorder statistics import API.

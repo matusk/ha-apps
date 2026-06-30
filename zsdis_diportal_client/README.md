@@ -63,6 +63,7 @@ Go to the **Configuration** tab of the App:
 | `historical_import` | `true` | Download history into HA Statistics on first start |
 | `historical_start_date` | `2024-01-01` | Start date for backfill (`YYYY-MM-DD`) |
 | `force_reimport` | `false` | Toggle to `true` to wipe and re-download all historical data |
+| `keep_alive_ping` | `false` | Ping the portal every 20–40 min to prevent session expiry during idle. Only needed if you use **manual cookies without 2Captcha** — when 2Captcha is configured, the session is renewed automatically on the next daily run. |
 | `update_hour` | `7` | Hour of day (0–23) when daily data is fetched |
 | `log_level` | `info` | Log verbosity |
 
@@ -107,7 +108,7 @@ To set this data as your main power consumption in Home Assistant, you need to a
 
 ## Troubleshooting
 
-- **Session Expired:** If using manual cookies without 2Captcha, repeat the DevTools cookie extraction process, paste the new string into the App Configuration, and restart the App.
+- **Session Expired:** If using manual cookies without 2Captcha, repeat the DevTools cookie extraction process, paste the new string into the App Configuration, and restart the App. You can also enable `keep_alive_ping: true` to have the App ping the portal every 20–40 minutes to prevent the session from expiring — but this is unnecessary if 2Captcha is configured, since the session will be renewed automatically at the next daily run.
 - **No data returned for date:** Check `/data/raw/raw_response_YYYY-MM-DD.json` inside the App's data directory to inspect the raw API response.
 - **VT/NT both zero or wrong split:** Verify your `hdo_primary` code matches your ZSDIS contract. The App fetches the live HDO schedule from `www.zsdis.sk`.
 
